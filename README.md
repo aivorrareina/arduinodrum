@@ -5,6 +5,9 @@
  Creamos entorno de python
 
 `
- python -m venv venv
- source venv/bin/activate
+ python -m venv venv 
 `
+`
+source venv/bin/activate
+`
+
