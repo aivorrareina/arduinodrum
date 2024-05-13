@@ -9,7 +9,9 @@
 ```
 
 ## Comando para arrancar servicio
-
+```
+sudo /home/angel/arduinodrum/venv/bin/python3 /home/angel/arduinodrum/server.py 
+```
 
 ## Servidor service file
 
