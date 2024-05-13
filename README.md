@@ -1,8 +1,6 @@
 # Robot Drum Machine
 
-# Dependencias python
-
- Creamos entorno de python
+## Dependencias python
 
 ```shell
  python -m venv venv 
@@ -10,3 +8,23 @@
  python3 -m pip install alsa-midi
 ```
 
+## Comando para arrancar servicio
+
+
+## Servidor service file
+
+```
+[Unit]
+Description=Puto robot servidor
+After=syslog.target network.target
+
+[Service]
+WorkingDirectory=/home/angel/arduinodrum/
+ExecStart=/home/angel/arduinodrum/venv/bin/python3 server.py 
+
+Restart=always
+RestartSec=120
+
+[Install]
+WantedBy=multi-user.target
+```
