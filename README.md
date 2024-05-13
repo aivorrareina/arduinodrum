@@ -4,7 +4,7 @@
 
  Creamos entorno de python
 
-'
+`
  python -m venv venv
-'
+`
 
