@@ -8,6 +8,7 @@ MIDI_PORT = 'movida'
 
 def main():
   while True:
+    restart_alsa()
     try:
       data = run(LGPT, capture_output=True, shell=True)
 
@@ -29,5 +30,4 @@ def restart_alsa():
   run(["sudo", "systemctl", "restart", "servidor"])
 
 if __name__ == "__main__":
-  restart_alsa()
   main()
