@@ -1,3 +1,4 @@
+#!/usr/bin/env /home/angel/env/bin/python3
 import rtmidi
 
 midiin = rtmidi.RtMidiIn()
@@ -22,3 +23,6 @@ if ports:
             print_message(m)
 else:
     print('NO MIDI INPUT PORTS!')
+
+if __name__ == "__main__":
+  main()    
