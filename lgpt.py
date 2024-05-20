@@ -4,7 +4,6 @@ import sys
 
 LGPT = '/home/angel/lgpt/bin/lgpt.rpi-exe'
 DATABASE = "/home/angel/lgpt.data"
-MIDI_PORT = 'movida'
 
 def main():
   while True:

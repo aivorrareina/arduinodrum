@@ -22,7 +22,6 @@ async def handle_client(reader, writer):
             data = await reader.read(1)  # Read one byte of data
             if not data:
                 break
-            await broadcast(data)
     except asyncio.CancelledError:
         pass
     finally:
@@ -32,7 +31,12 @@ async def handle_client(reader, writer):
         await writer.wait_closed()
 
 async def broadcast(message):
-    serialized_message = pickle.dumps(message)
+    serialized_message = pickle.dumps({
+        'note' : message.note,
+        'velocity' : message.velocity,
+        'channel' : message.channel,
+    })
+    print(f'Message {serialized_message}')
     for client in clients:
         client.write(serialized_message)
         await client.drain()  # Ensure message is sent
@@ -50,7 +54,7 @@ async def start_server(host, port):
         await server.serve_forever()
 
 async def show_input(client):
-    port = client.create_port("inout", WRITE_PORT)
+    port = client.create_port("inout", WRITE_PORT) 
     while True:
         event = await client.event_input()
         await handle_event(event)
